@@ -1,0 +1,15 @@
+---
+- hosts: master
+  remote_user: "{{remote_user}}"
+  become: yes
+  roles:
+    - role: generic
+    - role: master
+    
+    
+- hosts: worker-1,worker-2
+  remote_user: "{{remote_user}}"
+  become: yes
+  roles:
+    - role: generic
+    - role: slave
